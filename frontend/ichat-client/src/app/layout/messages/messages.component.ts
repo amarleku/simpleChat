@@ -60,6 +60,5 @@ export class MessagesComponent implements OnInit {
     const msgContainer = document.getElementById('msg-container');
     msgContainer.scrollTop = msgContainer.scrollHeight;
     this.currentTime  = new Date();
-
   }
 }

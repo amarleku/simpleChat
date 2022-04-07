@@ -31,8 +31,8 @@ public class Message {
     private String content;
 
 
-    @Column(name = "group")
-    private String group;
+  //  @Column(name = "group")
+  //  private String group;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "timestamp")
