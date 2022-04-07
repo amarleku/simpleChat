@@ -1,4 +1,4 @@
-# ichat
+# Simple Chat
 	A real-time chat application with Spring Boot and Angular
 
 ## Prerequisites
