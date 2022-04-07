@@ -1,6 +1,15 @@
 package chat.app.server.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Getter
+@Setter
 public class GroupDto {
-    int id;
+    Long id;
     String name;
+    List<User> users = new ArrayList<>();
 }
