@@ -11,7 +11,8 @@
           to {{receiver}}</div>
       </mat-grid-tile>
       <mat-grid-tile class="user-header">
-        <button mat-raised-button class="welcome" (click)="getInfo()">Welcome, {{username}}</button>
+        <button mat-raised-button class="welcome ml" (click)="getInfo()">Add Gropup</button>
+        <button mat-raised-button class="welcome ml" (click)="getInfo()">{{username}} - Information </button>
         <button mat-raised-button (click)="logout()" class="ml">Logout</button>
       </mat-grid-tile>
     </mat-grid-list>
@@ -32,7 +33,7 @@
   <div class="popup-content">
     <div class="popup-header">
 
-      <h3>Account Information</h3>
+      <h3>{{username}} - information</h3>
 
       <button mat-icon-button class="close" (click)="closePopup()">
         <mat-icon>close</mat-icon>
