@@ -31,17 +31,17 @@ export class LoginComponent implements OnInit {
   connect(username: string) {
     this.clearData();
     if (username === null || username === undefined || username === '') {
-      this.message = 'You must enter a username';
+      this.message = 'You have to enter a username';
       return;
     }
 
     this.userService.login({ 'id': null, 'username': username })
       .subscribe(
-        res => {
+        (_res: any) => {
           sessionStorage.setItem('user', username);
           this.router.navigate(['home']);
         },
-        error => {
+        (error: { error: string; }) => {
           this.message = error.error;
         });
   }
