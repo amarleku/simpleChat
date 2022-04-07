@@ -1,6 +1,8 @@
 package chat.app.server.controller;
 
+import chat.app.server.mapper.Mapper;
 import chat.app.server.model.Group;
+import chat.app.server.model.GroupDisplay;
 import chat.app.server.model.GroupDto;
 import chat.app.server.model.ReadReceiptRequest;
 import chat.app.server.repository.GroupRepository;
@@ -30,9 +32,9 @@ public class GroupController {
     }
 
     @GetMapping(value = "/getGroups")
-    public List<Group> getAll(@RequestBody GroupDto groupDto) {
+    public List<GroupDisplay> getAll() {
 
-        return groupRepository.findAll();
+        return Mapper.convertListToGroup2(groupRepository.findAll());
     }
 
 
