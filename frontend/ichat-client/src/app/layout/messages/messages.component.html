@@ -3,7 +3,9 @@
     <mat-list-item *ngFor="let message of filteredMessages" class="message-item"
       [style.background]="message.sender === username ? 'rgba(80,150,220, 0.4)':'rgba(150,150,150, 0.3)'">
       <mat-icon mat-list-icon>chat</mat-icon>
-      <h4 mat-line><b>{{message.sender === username ? 'You': message.sender}}</b>: {{message.content}}</h4>
+      <h4 mat-line><b>{{message.sender === username ? 'You': message.sender}}</b>: {{message.content}}
+        <span class="message-time">{{currentTime | date: 'medium'}}</span>
+      </h4>
     </mat-list-item>
   </mat-list>
 </div>

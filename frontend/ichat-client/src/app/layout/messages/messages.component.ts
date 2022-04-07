@@ -14,6 +14,7 @@ export class MessagesComponent implements OnInit {
   private filteredMessages: Array<Message> = [];
   private newMessage: string;
   private channel: string;
+  currentTime: Date;
 
   @Input()
   private username: string;
@@ -45,6 +46,7 @@ export class MessagesComponent implements OnInit {
           })
       });
       this.newMessage = '';
+      this.currentTime  = new Date();
       this.scrollToBottom();
     }
   }
@@ -52,6 +54,7 @@ export class MessagesComponent implements OnInit {
   filterMessages() {
     this.filteredMessages = this.messageService.filterMessages(this.channel);
     this.scrollToBottom();
+
   }
 
   scrollToBottom() {
