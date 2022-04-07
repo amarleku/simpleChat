@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "group")
+@Table(name = "groups")
 @Getter
 @Setter
 public class Group {
@@ -15,7 +15,7 @@ public class Group {
     @Id
     @GeneratedValue
     @Column(name = "id")
-    private Long groupId;
+    private Long id;
 
     @Column(name = "username", unique = true)
     private String name;
