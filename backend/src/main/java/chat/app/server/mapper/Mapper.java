@@ -40,7 +40,7 @@ public class Mapper {
         GroupDto groupDto = new GroupDto();
         groupDto.setId(group.getId());
         groupDto.setName(group.getName());
-        //groupDto.setUsers(convertListToGroupDisplay(group.));
+        groupDto.setUsers(convertListToUserDisplay(group.getUsers()));
         return groupDto;
     }
     public List<Group> convertListToGroup(List<GroupDto> groups){

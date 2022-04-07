@@ -11,6 +11,7 @@ import chat.app.server.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -32,8 +33,6 @@ public class GroupServiceImpl implements GroupService {
             user.setGroups(groupList);
             userRepository.save(user);
             groupRepository.save(Mapper.convertToGroup(groupDto));
-
-
         }
         return Mapper.convertToGroupDisplay(groupRepository.save(Mapper.convertToGroup(groupDto)));
     }

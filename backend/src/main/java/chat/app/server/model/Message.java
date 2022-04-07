@@ -1,12 +1,16 @@
 package chat.app.server.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "message")
+@Table(name = "messages")
+@Getter
+@Setter
 public class Message {
 
     @JsonIgnore
@@ -17,6 +21,9 @@ public class Message {
 
     @Column(name = "channel")
     private String channel;
+
+    @Column(name = "group_id")
+    private String group_id;
 
     @Column(name = "sender")
     private String sender;

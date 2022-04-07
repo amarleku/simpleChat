@@ -26,6 +26,7 @@ public class ChatController {
     @MessageMapping("/messages")
     public void handleMessage(Message message) {
         message.setTimestamp(new Date());
+
         messageRepository.save(message);
         template.convertAndSend("/channel/chat/" + message.getChannel(), message);
     }
