@@ -1,13 +1,16 @@
 package chat.app.server.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
+@Getter
+@Setter
 public class User {
 
     @Id
@@ -20,6 +23,13 @@ public class User {
 
     @Column(name = "connected", nullable = false)
     private Boolean connected = false;
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_group",
+            joinColumns = @JoinColumn(name = "id"),
+            inverseJoinColumns = @JoinColumn(name = "id"))
+    private List<Group> groups;
 
     public User() {
         super();

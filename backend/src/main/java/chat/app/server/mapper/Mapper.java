@@ -1,6 +1,8 @@
 package chat.app.server.mapper;
 
 
+import chat.app.server.model.Group;
+import chat.app.server.model.GroupDto;
 import chat.app.server.model.Message;
 import chat.app.server.model.MessageDisplayDto;
 import lombok.experimental.UtilityClass;
@@ -27,4 +29,23 @@ public class Mapper {
         messageDisplayDto.setTimeStamp(String.valueOf(message.getTimestamp()));
         return messageDisplayDto;
     }
+
+    public List<GroupDto> convertListToGroupDisplay(List<Group> groups){
+        List<GroupDto> groupDtoList = new ArrayList<>();
+        for (Group group:groups
+        ) {
+            groupDtoList.add(convertToGroupDisplay(group));
+        }
+        return groupDtoList;
+    }
+
+    public GroupDto convertToGroupDisplay(Group group){
+        GroupDto groupDto = new GroupDto();
+        groupDto.setId(group.getId());
+        groupDto.setName(group.getName());
+        //groupDto.setUsers(convertListToGroupDisplay(group.));
+        return groupDto;
+    }
+
+
 }
