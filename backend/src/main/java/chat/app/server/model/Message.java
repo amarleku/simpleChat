@@ -30,9 +30,8 @@ public class Message {
     @Column(name = "content")
     private String content;
 
-
-  //  @Column(name = "group")
-  //  private String group;
+    @Column(name = "group")
+    private String group;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "timestamp")

@@ -49,6 +49,7 @@ public class ConnectionController {
 
     @RequestMapping(value = "/listUsers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<User> findConnectedUsers() {
+
         return userDao.findAll();
     }
 

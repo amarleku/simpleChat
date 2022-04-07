@@ -56,7 +56,7 @@ public class Mapper {
         Group group = new Group();
         group.setGroupId(groupDto.getId());
         group.setName(groupDto.getName());
-        //groupDto.setUsers(convertListToGroupDisplay(group.));
+        group.setUsers(convertListToUserDisplay(groupDto.getUsers()));
         return group;
     }
 

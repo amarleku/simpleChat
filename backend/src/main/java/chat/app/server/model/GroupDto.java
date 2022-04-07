@@ -11,5 +11,5 @@ import java.util.List;
 public class GroupDto {
     Long id;
     String name;
-    List<User> users = new ArrayList<>();
+    List<UserDto> users = new ArrayList<>();
 }

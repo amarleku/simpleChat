@@ -24,12 +24,12 @@ public class User {
     @Column(name = "connected", nullable = false)
     private Boolean connected = false;
 
-   // @ManyToMany
-    //@JoinTable(
-     //       name = "user_group",
-     //       joinColumns = @JoinColumn(name = "id2"),
-     //       inverseJoinColumns = @JoinColumn(name = "id1"))
-    //private List<Group> groups;
+    @ManyToMany
+    @JoinTable(
+            name = "user_group",
+            joinColumns = @JoinColumn(name = "id2"),
+            inverseJoinColumns = @JoinColumn(name = "id1"))
+    private List<Group> groups;
 
     public User() {
         super();
