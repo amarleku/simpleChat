@@ -1,8 +1,10 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, TemplateRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../shared/service/user.service';
 import { RxStompService } from '@stomp/ng2-stompjs';
 import { AuthService } from 'angularx-social-login';
+ import {MatDialog, MatDialogConfig, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatMenuTrigger } from '@angular/material';
 
 @Component({
   selector: 'wt-home',
@@ -13,10 +15,19 @@ export class HomeComponent implements OnInit {
 
   private receiver: string;
   private username: string;
+  popup: boolean = false;
 
-  constructor(private router: Router, private userService: UserService
-    , private stompService: RxStompService, private authService: AuthService) {
-  }
+
+  constructor(
+    private router: Router,
+    private userService: UserService,
+    private stompService: RxStompService,
+    private authService: AuthService,
+    public dialog: MatDialog,
+
+  ) { }
+
+
 
   ngOnInit() {
     this.username = sessionStorage.getItem('user');
@@ -34,6 +45,13 @@ export class HomeComponent implements OnInit {
 
   onReceiverChange(event) {
     this.receiver = event;
+  }
+getInfo() {
+    this.popup = !this.popup;
+  }
+
+  closePopup(){
+    this.popup = false;
   }
 
   logout() {
@@ -63,3 +81,7 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/']);
   }
 }
+function DialogDataExampleDialog(DialogDataExampleDialog: any, arg1: { data: { animal: string; }; }) {
+  throw new Error('Function not implemented.');
+}
+

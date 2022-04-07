@@ -11,7 +11,7 @@
           to {{receiver}}</div>
       </mat-grid-tile>
       <mat-grid-tile class="user-header">
-        <button mat-raised-button class="welcome">Welcome, {{username}}</button>
+        <button mat-raised-button class="welcome" (click)="getInfo()">Welcome, {{username}}</button>
         <button mat-raised-button (click)="logout()" class="ml">Logout</button>
       </mat-grid-tile>
     </mat-grid-list>
@@ -26,4 +26,21 @@
       <wt-messages [username]="username" class="message-wrapper"></wt-messages>
     </mat-grid-tile>
   </mat-grid-list>
+
+</div>
+<div *ngIf="popup" class="popup">
+  <div class="popup-content">
+    <div class="popup-header">
+
+      <h3>Account Information</h3>
+
+      <button mat-icon-button class="close" (click)="closePopup()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <hr>
+    <div class="popup-body">
+      <p>Name: {{username}}</p>
+    </div>
+  </div>
 </div>
