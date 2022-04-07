@@ -20,6 +20,6 @@ public class Group {
     @Column(name = "username", unique = true)
     private String name;
 
-    @ManyToMany(mappedBy = "groups")
-    List<User> users;
+    //@ManyToMany(mappedBy = "groups")
+   // List<User> users;
 }

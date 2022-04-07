@@ -28,8 +28,8 @@ public class MessageController {
         messageRepository.sendReadReceipt(request.getChannel(), request.getUsername());
     }
 
-    @PostMapping(value = "/messages/{groupId}")
-    public void sendReadReceipt(@RequestBody ReadReceiptRequest request) {
-        messageRepository.sendReadReceipt(request.getChannel(), request.getUsername());
-    }
+//    @PostMapping(value = "/messages/{groupId}")
+//    public void sendReadReceipt(@RequestBody ReadReceiptRequest request) {
+//        messageRepository.sendReadReceipt(request.getChannel(), request.getUsername());
+//    }
 }

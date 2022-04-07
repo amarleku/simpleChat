@@ -32,17 +32,17 @@ export class HomeComponent implements OnInit {
     this.logout();
   }
 
-  onReceiverChange(event: string) {
+  onReceiverChange(event) {
     this.receiver = event;
   }
 
   logout() {
     this.userService.logout({ 'id': null, 'username': this.username })
       .subscribe(
-        (_res: any) => {
+        res => {
           this.logoutSocial();
         },
-        (error: { _body: any; }) => {
+        error => {
           console.log(error._body);
         });
   }
@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
     this.authService.signOut().then(() => {
       this.clearSession();
     },
-      _error => {
+      error => {
         this.clearSession();
       });
   }

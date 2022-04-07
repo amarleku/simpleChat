@@ -13,8 +13,8 @@ import {
 })
 export class LoginComponent implements OnInit {
 
-  public message: string;
-  username: SocialUser;
+  message: string;
+  private user: SocialUser;
 
   constructor(private router: Router,
     private userService: UserService,
