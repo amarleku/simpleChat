@@ -1,0 +1,33 @@
+.full-width {
+  width: 100%;
+}
+
+.login-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.login-input {
+  font-size: 24px;
+  font-family: verdana;
+}
+
+.login-header {
+  font-size: 1em;
+  font-family: verdana;
+}
+
+.error-message {
+  font-size: 1em;
+  font-family: verdana;
+  color: #fff;
+  background: #e74c3c;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.custom-button{
+  background-color: #27ae60;
+  color: white;
+}
