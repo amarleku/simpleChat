@@ -46,7 +46,7 @@ export class MessagesComponent implements OnInit {
           })
       });
       this.newMessage = '';
-      this.currentTime  = new Date();
+      this.currentTime = new Date();
       this.scrollToBottom();
     }
   }
