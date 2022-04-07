@@ -46,6 +46,22 @@ public class Mapper {
         //groupDto.setUsers(convertListToGroupDisplay(group.));
         return groupDto;
     }
+    public List<Group> convertListToGroup(List<GroupDto> groups){
+        List<Group> groupDtoList = new ArrayList<>();
+        for (GroupDto groupDto:groups
+        ) {
+            groupDtoList.add(convertToGroup(groupDto));
+        }
+        return groupDtoList;
+    }
+
+    public Group convertToGroup(GroupDto groupDto){
+        Group group = new Group();
+        group.setId(groupDto.getId());
+        group.setName(groupDto.getName());
+        //groupDto.setUsers(convertListToGroupDisplay(group.));
+        return group;
+    }
 
 
 }

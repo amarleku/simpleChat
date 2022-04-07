@@ -30,6 +30,10 @@ public class Message {
     @Column(name = "content")
     private String content;
 
+
+    @Column(name = "group")
+    private String group;
+
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "timestamp")
     private Date timestamp;
@@ -37,6 +41,7 @@ public class Message {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "read_date")
     private Date readDate;
+
 
     public Message() {
         super();

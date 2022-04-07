@@ -1,5 +1,6 @@
 package chat.app.server.service.implementation;
 
+import chat.app.server.mapper.Mapper;
 import chat.app.server.model.GroupDto;
 import chat.app.server.repository.GroupRepository;
 import chat.app.server.service.GroupService;
@@ -13,7 +14,7 @@ public class GroupServiceImpl implements GroupService {
     GroupRepository groupRepository;
 
     public GroupDto addGroup(GroupDto groupDto){
-
+        return Mapper.convertToGroupDisplay(groupRepository.save(Mapper.convertToGroup(groupDto)));
     }
 
 }

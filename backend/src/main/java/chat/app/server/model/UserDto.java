@@ -1,2 +1,4 @@
-package chat.app.server.model;public class USerDto {
+package chat.app.server.model;
+
+public class UserDto {
 }
