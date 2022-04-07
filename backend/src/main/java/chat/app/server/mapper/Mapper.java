@@ -56,14 +56,14 @@ public class Mapper {
         Group group = new Group();
         group.setId(groupDto.getId());
         group.setName(groupDto.getName());
-        //groupDto.setUsers(convertListToGroupDisplay(group.));
+        group.setUsers(convertUserDisplayToUsers(groupDto.getUsers()));
         return group;
     }
 
     public UserDto convertToUserDisplay(User user) {
         UserDto userDto = new UserDto();
         userDto.setId(user.getId());
-        userDto.setName(user.getUsername());
+        userDto.setUsername(user.getUsername());
         userDto.setConnected(user.getConnected());
         return userDto;
     }
@@ -75,6 +75,45 @@ public class Mapper {
             userDtos.add(convertToUserDisplay(user1));
         }
         return userDtos;
+    }
+
+    public User convertToUser(UserDto userDto) {
+        User user = new User();
+        user.setId(userDto.getId());
+        user.setUsername(userDto.getUsername());
+        user.setConnected(userDto.getConnected());
+        return user;
+    }
+
+    public List<User> convertUserDisplayToUsers(List<UserDto> userDtos) {
+        List<User> users= new ArrayList<>();
+
+        for(UserDto u: userDtos) {
+            users.add(convertToUser(u));
+        }
+
+        return users;
+    }
+
+    public GroupDisplay convertToGroupDisplay2(Group group){
+        GroupDisplay groupDto = new GroupDisplay();
+        groupDto.setId(group.getId());
+        groupDto.setName(group.getName());
+        List<String> userNames = new ArrayList<>();
+        for (User user:group.getUsers()
+             ) {
+            userNames.add(user.getUsername());
+        }
+        groupDto.setUsers(userNames);
+        return groupDto;
+    }
+    public List<GroupDisplay> convertListToGroup2(List<Group> groups){
+        List<GroupDisplay> groupDtoList = new ArrayList<>();
+        for (Group group:groups
+        ) {
+            groupDtoList.add(convertToGroupDisplay2(group));
+        }
+        return groupDtoList;
     }
 
 }

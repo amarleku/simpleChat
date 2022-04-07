@@ -2,13 +2,7 @@ package chat.app.server.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -29,10 +23,6 @@ public class Message {
 
     @Column(name = "content")
     private String content;
-
-
-  //  @Column(name = "group")
-  //  private String group;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "timestamp")

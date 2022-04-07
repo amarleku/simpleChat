@@ -14,7 +14,7 @@ import java.util.List;
 public class User {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
@@ -24,12 +24,12 @@ public class User {
     @Column(name = "connected", nullable = false)
     private Boolean connected = false;
 
-   // @ManyToMany
-    //@JoinTable(
-     //       name = "user_group",
-     //       joinColumns = @JoinColumn(name = "id2"),
-     //       inverseJoinColumns = @JoinColumn(name = "id1"))
-    //private List<Group> groups;
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "user_group",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "group_id"))
+    private List<Group> groups;
 
     public User() {
         super();

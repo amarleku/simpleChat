@@ -6,10 +6,10 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
 @Setter
-public class GroupDto {
+@Getter
+public class GroupDisplay {
     Long id;
     String name;
-    List<UserDto> users = new ArrayList<>();
+    List<String> users = new ArrayList<>();
 }
