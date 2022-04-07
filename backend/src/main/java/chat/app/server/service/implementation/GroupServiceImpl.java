@@ -11,7 +11,6 @@ import chat.app.server.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -27,12 +26,14 @@ public class GroupServiceImpl implements GroupService {
 
         for (UserDto userDto:groupDto.getUsers()
              ) {
-            User user = userRepository.findByUsername(userDto.getName());
+            User user = userRepository.findByUsername(userDto.getUsername());
             List<Group> groupList = user.getGroups();
             groupList.add(Mapper.convertToGroup(groupDto));
             user.setGroups(groupList);
             userRepository.save(user);
             groupRepository.save(Mapper.convertToGroup(groupDto));
+
+
         }
         return Mapper.convertToGroupDisplay(groupRepository.save(Mapper.convertToGroup(groupDto)));
     }

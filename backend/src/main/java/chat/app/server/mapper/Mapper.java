@@ -56,14 +56,14 @@ public class Mapper {
         Group group = new Group();
         group.setId(groupDto.getId());
         group.setName(groupDto.getName());
-        group.setUsers(convertUserDisplayListToUsers(groupDto.getUsers()));
+        group.setUsers(convertUserDisplayToUsers(groupDto.getUsers()));
         return group;
     }
 
     public UserDto convertToUserDisplay(User user) {
         UserDto userDto = new UserDto();
         userDto.setId(user.getId());
-        userDto.setName(user.getUsername());
+        userDto.setUsername(user.getUsername());
         userDto.setConnected(user.getConnected());
         return userDto;
     }
@@ -80,12 +80,12 @@ public class Mapper {
     public User convertToUser(UserDto userDto) {
         User user = new User();
         user.setId(userDto.getId());
-        user.setUsername(userDto.getName());
+        user.setUsername(userDto.getUsername());
         user.setConnected(userDto.getConnected());
         return user;
     }
 
-    public List<User> convertUserDisplayListToUsers(List<UserDto> userDtos) {
+    public List<User> convertUserDisplayToUsers(List<UserDto> userDtos) {
         List<User> users= new ArrayList<>();
 
         for(UserDto u: userDtos) {
