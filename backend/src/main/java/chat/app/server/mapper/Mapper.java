@@ -38,7 +38,7 @@ public class Mapper {
 
     public GroupDto convertToGroupDisplay(Group group){
         GroupDto groupDto = new GroupDto();
-        groupDto.setId(group.getId());
+        groupDto.setId(group.getGroupId());
         groupDto.setName(group.getName());
         //groupDto.setUsers(convertListToGroupDisplay(group.));
         return groupDto;
@@ -54,7 +54,7 @@ public class Mapper {
 
     public Group convertToGroup(GroupDto groupDto){
         Group group = new Group();
-        group.setId(groupDto.getId());
+        group.setGroupId(groupDto.getId());
         group.setName(groupDto.getName());
         //groupDto.setUsers(convertListToGroupDisplay(group.));
         return group;
@@ -75,6 +75,24 @@ public class Mapper {
             userDtos.add(convertToUserDisplay(user1));
         }
         return userDtos;
+    }
+
+    public User convertToUser(UserDto userDto) {
+        User user = new User();
+        user.setId(userDto.getId());
+        user.setUsername(userDto.getName());
+        user.setConnected(userDto.getConnected());
+        return user;
+    }
+
+    public List<User> convertUserDisplayToUsers(List<UserDto> userDtos) {
+        List<User> users= new ArrayList<>();
+
+        for(UserDto u: userDtos) {
+            users.add(convertToUser(u));
+        }
+
+        return users;
     }
 
 }
