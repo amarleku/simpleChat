@@ -1,19 +1,19 @@
 <mat-grid-list cols="1" rowHeight="100px" class="login-container">
   <mat-grid-tile>
-    <h1>Welcome to the Alpha Team Chat</h1>
+    <h1 class="welcome-title">Welcome to the Alpha Team Chat</h1>
   </mat-grid-tile>
   <mat-grid-tile style="text-align: left">
     <div class="login-header">
-      Enter your user name to connect to the chat room
+      <h1 class="welcome-title"> Enter your user name to connect to the chat room </h1>
     </div>
   </mat-grid-tile>
-  <mat-grid-tile>
+  <mat-grid-tile class="login-form">
     <mat-form-field class="full-width">
       <input matInput placeholder="Username" class="login-input" type="text" [(ngModel)]="username"
         (keyup)="$event.keyCode == 13 ? connect(username) : null">
     </mat-form-field>
   </mat-grid-tile>
-  <mat-grid-tile>
+  <mat-grid-tile class="login-form">
     <button mat-raised-button class="full-width custom-button" (click)="connect(username)">Connect</button>
   </mat-grid-tile>
   <mat-grid-tile *ngIf="message !== undefined && message !== null">
