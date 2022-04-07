@@ -15,7 +15,7 @@
 }
 
 .message-container {
-  overflow-y: auto;
+  overflow-y: hidden;
   height: 480px;
 }
 
@@ -32,4 +32,7 @@
   cursor: pointer;
   width: 15%;
   margin-left: 2.5em;
+}
+.message-time{
+  float: right;
 }
