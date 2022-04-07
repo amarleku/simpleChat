@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared/module/shared.module';
 import { UsersListModule } from '../users-list/users-list.module';
 import { MessagesModule } from '../messages/messages.module';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 @NgModule({
   imports: [
@@ -14,7 +16,8 @@ import { MessagesModule } from '../messages/messages.module';
     FormsModule,
     SharedModule,
     UsersListModule,
-    MessagesModule
+    MessagesModule,
+    MatDialogModule
   ],
   declarations: [HomeComponent]
 })

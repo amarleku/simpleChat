@@ -80,9 +80,43 @@
   color: white;
 }
 
-.welcome-title{
+.welcome-title {
   font-size: 1.5em;
   font-family: Arial, sans-serif;
   color: #c0392b;
   margin-left: 1em;
+}
+.popup {
+  width: 500px;
+  height: 500px;
+  position: fixed;
+  display: block;
+  margin: auto;
+  z-index: 99999;
+  position: relative;
+  top: -5em;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: transparent;
+  border-style: solid;
+  box-shadow: 0px 0px 13px 2px #3498db;
+  background-color: white;
+}
+.popup-header {
+  font-size: 1.5em;
+  font-family: Arial, sans-serif;
+  color: #c0392b;
+  margin-left: 1em;
+  display: flex;
+}
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 5px;
+  cursor: pointer;
+}
+.popup-body {
+  height: 400px;
+  margin-left: 1.5em;
 }
