@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../../shared/service/user.service';
 import { RxStompService } from '@stomp/ng2-stompjs';
 import { AuthService } from 'angularx-social-login';
- import {MatDialog, MatDialogConfig, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatMenuTrigger } from '@angular/material';
 
 @Component({
@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   private receiver: string;
   private username: string;
   popup: boolean = false;
-
+  private userId: any;
 
   constructor(
     private router: Router,
@@ -27,9 +27,8 @@ export class HomeComponent implements OnInit {
 
   ) { }
 
-
-
   ngOnInit() {
+    this.userId = sessionStorage.getItem('id');
     this.username = sessionStorage.getItem('user');
     if (this.username == null || this.username === '') {
       this.router.navigate(['/']);
@@ -46,11 +45,11 @@ export class HomeComponent implements OnInit {
   onReceiverChange(event) {
     this.receiver = event;
   }
-getInfo() {
+  getInfo() {
     this.popup = !this.popup;
   }
 
-  closePopup(){
+  closePopup() {
     this.popup = false;
   }
 
