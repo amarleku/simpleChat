@@ -23,13 +23,14 @@ public class MessageController {
         return messageRepository.findAllByChannel(channelId, pageable);
     }
 
-    @PostMapping(value = "/messages")
-    public void sendReadReceipt(@RequestBody ReadReceiptRequest request) {
-        messageRepository.sendReadReceipt(request.getChannel(), request.getUsername());
-    }
+   // @PostMapping(value = "/messages")
+    //public void sendReadReceipt(@RequestBody ReadReceiptRequest request) {
+     //   System.out.println(request);
+      //  messageRepository.sendReadReceipt(request.getChannel(), request.getUsername());
+    //}
 
-//    @PostMapping(value = "/messages/{groupId}")
-//    public void sendReadReceipt(@RequestBody ReadReceiptRequest request) {
-//        messageRepository.sendReadReceipt(request.getChannel(), request.getUsername());
-//    }
+    @GetMapping(value = "/messages/{groupId}")
+    public Page<Message> sendReadReceiptForGroup(@PathVariable("groupId") int groupId, Pageable pageable) {
+        return messageRepository.findAllByGroupid(groupId, pageable);
+    }
 }

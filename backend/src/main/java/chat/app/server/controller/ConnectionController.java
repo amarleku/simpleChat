@@ -1,7 +1,9 @@
 package chat.app.server.controller;
 
 import chat.app.server.exception.UsernameAlreadyUsedException;
+import chat.app.server.mapper.Mapper;
 import chat.app.server.model.User;
+import chat.app.server.model.UserDisplay;
 import chat.app.server.repository.UserRepository;
 import chat.app.server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class ConnectionController {
 
@@ -26,6 +30,7 @@ public class ConnectionController {
 
     @Autowired
     private SimpMessagingTemplate template;
+
 
     @RequestMapping(value = "/login", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> login(@RequestBody User user) {
@@ -48,9 +53,9 @@ public class ConnectionController {
     }
 
     @RequestMapping(value = "/listUsers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<User> findConnectedUsers() {
+    public List<UserDisplay> findConnectedUsers() {
 
-        return userDao.findAll();
+        return Mapper.convertListToUser2(userDao.findAll());
     }
 
     @RequestMapping(value = "/clearAll", method = RequestMethod.GET)
