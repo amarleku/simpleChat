@@ -1,10 +1,7 @@
 package chat.app.server.mapper;
 
 
-import chat.app.server.model.Group;
-import chat.app.server.model.GroupDto;
-import chat.app.server.model.Message;
-import chat.app.server.model.MessageDisplayDto;
+import chat.app.server.model.*;
 import lombok.experimental.UtilityClass;
 
 import java.util.ArrayList;
@@ -47,5 +44,21 @@ public class Mapper {
         return groupDto;
     }
 
+    public UserDto convertToUserDisplay(User user) {
+        UserDto userDto = new UserDto();
+        userDto.setId(user.getId());
+        userDto.setName(user.getUsername());
+        userDto.setConnected(user.getConnected());
+        return userDto;
+    }
+
+    public List<UserDto> convertListToUserDisplay(List<User> users) {
+        List<UserDto> userDtos = new ArrayList<>();
+        for (User user1:users
+        ) {
+            userDtos.add(convertToUserDisplay(user1));
+        }
+        return userDtos;
+    }
 
 }
