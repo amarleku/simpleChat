@@ -54,16 +54,16 @@ public class Mapper {
 
     public Group convertToGroup(GroupDto groupDto){
         Group group = new Group();
-        group.setId(groupDto.getId());
+        //group.setId(groupDto.getId());
         group.setName(groupDto.getName());
-        group.setUsers(convertUserDisplayToUsers(groupDto.getUsers()));
+        //group.setUsers(convertUserDisplayToUsers(groupDto.getUsers()));
         return group;
     }
 
     public UserDto convertToUserDisplay(User user) {
         UserDto userDto = new UserDto();
         userDto.setId(user.getId());
-        userDto.setUsername(user.getUsername());
+        userDto.setName(user.getUsername());
         userDto.setConnected(user.getConnected());
         return userDto;
     }
@@ -80,7 +80,7 @@ public class Mapper {
     public User convertToUser(UserDto userDto) {
         User user = new User();
         user.setId(userDto.getId());
-        user.setUsername(userDto.getUsername());
+        user.setUsername(userDto.getName());
         user.setConnected(userDto.getConnected());
         return user;
     }

@@ -25,19 +25,18 @@ public class GroupServiceImpl implements GroupService {
 
     public GroupDto addGroup(GroupDto groupDto){
 
+        Group currentGroup = Mapper.convertToGroup(groupDto);
+
         for (UserDto userDto:groupDto.getUsers()
         ) {
-            User user = userRepository.findByUsername(userDto.getUsername());
-            List<Group> groupList = user.getGroups();
-            Group currentGroup = Mapper.convertToGroup(groupDto);
-            groupList.add(currentGroup);
-            user.setGroups(groupList);
-            currentGroup.getUsers().add(user);
-            currentGroup.setUsers(currentGroup.getUsers());
-            userRepository.save(user);
-            groupRepository.save(Mapper.convertToGroup(groupDto));
+            User user = userRepository.findByUsername(userDto.getName());
+            currentGroup.addUser(user);
+            //System.err.println(currentGroup);
+
         }
-        return Mapper.convertToGroupDisplay(groupRepository.save(Mapper.convertToGroup(groupDto)));
+        groupRepository.save(currentGroup);
+        //return Mapper.convertToGroupDisplay(groupRepository.save(Mapper.convertToGroup(groupDto)));
+        return null;
     }
 
 }
