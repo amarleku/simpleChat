@@ -1,10 +1,28 @@
-import { Component, OnInit, HostListener, TemplateRef, ViewChild } from '@angular/core';
+import { Component, OnInit, HostListener, TemplateRef, ViewChild, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../shared/service/user.service';
 import { RxStompService } from '@stomp/ng2-stompjs';
 import { AuthService } from 'angularx-social-login';
-import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatMenuTrigger } from '@angular/material';
+import { Group } from 'src/app/shared/model/group';
+
+
+@Component({
+  selector: 'group-dialog',
+  template: ` <mat-grid-tile class="login-form">
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Username" class="login-input" type="text">
+  </mat-form-field>
+</mat-grid-tile>`,
+})
+export class GroupDialog {
+
+  constructor() { }
+
+  onNoClick(): void {
+  }
+}
 
 @Component({
   selector: 'wt-home',
@@ -17,14 +35,15 @@ export class HomeComponent implements OnInit {
   private username: string;
   popup: boolean = false;
   private userId: any;
+  group: boolean = false;
+  groupName: any;
 
   constructor(
     private router: Router,
     private userService: UserService,
     private stompService: RxStompService,
     private authService: AuthService,
-    public dialog: MatDialog,
-
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -51,6 +70,18 @@ export class HomeComponent implements OnInit {
 
   closePopup() {
     this.popup = false;
+    this.group = false;
+  }
+
+  addGroup() {
+    // const dialogRef = this.dialog.open(GroupDialog, {
+    //   width: '500px'
+    // });
+
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log('The dialog was closed');
+    // });
+    this.group = !this.group;
   }
 
   logout() {
