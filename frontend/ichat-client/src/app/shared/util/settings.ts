@@ -1,3 +1,3 @@
 export const settings = {
-        baseUrl: 'http://localhost:8080'
+        baseUrl: 'http://chatfinal-env.eba-k5azmjpw.us-east-1.elasticbeanstalk.com'
 }
