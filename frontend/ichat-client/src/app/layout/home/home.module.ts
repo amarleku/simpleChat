@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home.component';
+import { GroupDialog, HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared/module/shared.module';
@@ -19,6 +19,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MessagesModule,
     MatDialogModule
   ],
-  declarations: [HomeComponent]
+  declarations: [HomeComponent, GroupDialog],
+  entryComponents: [GroupDialog]
 })
 export class HomeModule { }
