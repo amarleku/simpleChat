@@ -11,6 +11,8 @@ public interface MessageRepository extends JpaRepository<Message, Long> {
 
     Page<Message> findAllByChannel(String channel, Pageable pageable);
 
+    Page<Message> findAllByGroupid(int group_id, Pageable pageable);
+
     @Modifying
     @Query(value = "update message set readDate = now() "
             + " where channel = ?1 and sender = ?2 and readDate is null", nativeQuery = true)

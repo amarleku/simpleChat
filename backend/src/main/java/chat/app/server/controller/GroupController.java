@@ -30,10 +30,6 @@ public class GroupController {
         groupService.addGroup(groupDto);
         return ResponseEntity.ok("Done");
     }
-   // @GetMapping(value = "/messages/{groupId}")
-    //public Page<Message> findMessages(Pageable pageable, @PathVariable("groupId") String channelId) {
-        //return messageRepository.findAllByGroup(channelId, pageable);
-   // }
 
     @GetMapping(value = "/getGroups")
     public List<GroupDisplay> getAll() {

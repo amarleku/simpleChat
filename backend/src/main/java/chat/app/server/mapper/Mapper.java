@@ -107,6 +107,7 @@ public class Mapper {
         groupDto.setUsers(userNames);
         return groupDto;
     }
+
     public List<GroupDisplay> convertListToGroup2(List<Group> groups){
         List<GroupDisplay> groupDtoList = new ArrayList<>();
         for (Group group:groups
@@ -116,4 +117,32 @@ public class Mapper {
         return groupDtoList;
     }
 
+    public UserDisplay convertToGroupDisplay2(User user){
+        UserDisplay userDisplay = new UserDisplay();
+        userDisplay.setId(user.getId());
+        userDisplay.setName(user.getUsername());
+        List<String> groupNames = new ArrayList<>();
+        System.err.println(user.getGroups());
+        for (Group group:user.getGroups()
+        ) {
+
+            groupNames.add(group.getName());
+        }
+        userDisplay.setGroups(groupNames);
+        return userDisplay;
+    }
+
+
+    public List<UserDisplay> convertListToUser2(List<User> users){
+        List<UserDisplay> userDtoList = new ArrayList<>();
+        for (User user:users
+        ) {
+            userDtoList.add(convertToGroupDisplay2(user));
+        }
+        return userDtoList;
+    }
 }
+
+
+
+

@@ -22,8 +22,8 @@ public class Message {
     @Column(name = "channel")
     private String channel;
 
-    @Column(name = "group_id")
-    private String group_id;
+    @Column(name = "groupid")
+    private int groupid;
 
     @Column(name = "sender")
     private String sender;

@@ -26,7 +26,7 @@ public class GroupServiceImpl implements GroupService {
     public GroupDto addGroup(GroupDto groupDto){
 
         for (UserDto userDto:groupDto.getUsers()
-             ) {
+        ) {
             User user = userRepository.findByUsername(userDto.getUsername());
             List<Group> groupList = user.getGroups();
             Group currentGroup = Mapper.convertToGroup(groupDto);
